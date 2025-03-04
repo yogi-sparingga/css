@@ -1,0 +1,858 @@
+ :root {
+            --primary-color: #0056b3;
+            --secondary-color: #003087;
+            --dark-color: #1a1a2e;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+            --card-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            --hover-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light-bg);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            padding: 12px 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            max-height: 40px;
+            width: auto;
+        }
+
+        .header .date {
+            font-size: 14px;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* Menu - Perbaikan untuk mencegah melebar ke bawah */
+        .menu {
+            background: linear-gradient(to right, #272330, #3c00bf);
+            padding: 0;
+            width: 100%;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 64px;
+            left: 0;
+            z-index: 900;
+            height: 44px; /* Tetapkan tinggi menu */
+            display: flex;
+            align-items: center;
+        }
+ 
+        .menu .nav {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .menu .nav-item {
+            margin: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu .nav-link {
+            color: #fff;
+            font-weight: 400;
+            text-decoration: none;
+            font-size: 15px;
+            padding: 0 25px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            height: 100%;
+            border-bottom: 3px solid transparent;
+        }
+
+        .menu .nav-link:hover, 
+        .menu .nav-link.active {
+            background: rgba(255,255,255,0.15);
+            border-bottom: 3px solid #fff;
+        }
+
+        /* Content Wrapper */
+        .content-wrapper {
+            padding-top: 120px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+       /* Enhanced Main Slider with Shadow - Perbaikan agar sejajar dengan section news */
+        .slider {
+            width: 100%;
+            max-width: 100%; 
+            height: auto; 
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+        }
+
+        .main-slider {
+            width: 100%;
+            height: auto;
+        }
+        
+        .main-slider .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+        
+        .main-slider .swiper-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.6s ease;
+        }
+        
+        .slider::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .slider {
+                height: auto;
+                min-height: 350px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .slider {
+                height: auto;
+                min-height: 200px;
+                max-height: 300px;
+                margin-bottom: 30px;
+                border-radius: var(--border-radius);
+            }
+        
+            .main-slider .swiper-slide {
+                height: auto;
+            }
+        
+            .main-slider .swiper-slide img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+        
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #fff;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background: rgba(0, 0, 0, 0.6);
+            transform: scale(1.1);
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 18px;
+        }
+
+        .swiper-pagination-bullet {
+            background: #fff;
+            opacity: 0.7;
+            width: 10px;
+            height: 10px;
+            transition: var(--transition);
+        }
+
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: var(--primary-color);
+            width: 14px;
+            height: 14px;
+            transform: scale(1.2);
+        }
+
+        /* Section Headings */
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--secondary-color);
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .view-all {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+        
+        .view-all:hover {
+            opacity: 0.8;
+            transform: translateX(3px);
+        }
+
+        /* IMPROVED: News Section with Modern Cards */
+        .news-section {
+            padding: 0;
+            margin-bottom: 60px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .news-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .news-image-container {
+            position: relative;
+            min-width: 180px;
+            width: 180px;
+            height: 180px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .news-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .news-card .content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .news-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--secondary-color);
+            line-height: 1.4;
+        }
+
+        .news-card p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: #777;
+        }
+
+        .news-meta .meta-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .news-meta i {
+            margin-right: 5px;
+            color: var(--primary-color);
+        }
+
+        .news-card .btn {
+            border-radius: 3px;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+            align-self: flex-start;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .news-card .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 48, 135, 0.2);
+        }
+        
+        .news-card .category-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--primary-color);
+            color: white;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            z-index: 5;
+        }
+
+        /* FIXED: Gallery Section with Proper Lightbox Integration */
+        .gallery-section {
+            padding: 0;
+            margin-bottom: 60px;
+        }
+
+        /* Gallery Main */
+        .gallery-main {
+            width: 100%;
+            height: 450px;
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        .gallery-main .swiper-slide {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-main .swiper-slide a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .gallery-main .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-main .swiper-slide:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Gallery Thumbnails */
+        .gallery-thumbs {
+            height: 100px;
+            box-sizing: border-box;
+            padding: 10px 0;
+        }
+
+        .gallery-thumbs .swiper-slide {
+            width: 120px;
+            height: 80px;
+            opacity: 0.6;
+            cursor: pointer;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .gallery-thumbs .swiper-slide-thumb-active {
+            opacity: 1;
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .gallery-thumbs .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Improved Lightbox Styling */
+        .lb-outerContainer {
+            border-radius: 8px 8px 0 0 !important;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .lb-dataContainer {
+            border-radius: 0 0 8px 8px !important;
+            padding: 12px !important;
+            background-color: #fff !important;
+        }
+
+        .lb-data .lb-caption {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+            color: #222 !important;
+        }
+
+        .lb-data .lb-number {
+            font-size: 13px !important;
+            padding-top: 8px !important;
+            color: #666 !important;
+        }
+
+        .lb-closeContainer {
+            padding-top: 5px !important;
+        }
+
+        /* Footer with improved styling */
+        .footer {
+            background: linear-gradient(135deg, #1A3C6D, #002060);
+            color: white;
+            padding: 60px 40px 40px;
+            width: 100%;
+            border-radius: 12px 12px 0 0;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #0056b3, #6610f2, #0056b3);
+        }
+
+        .footer h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: rgba(255,255,255,0.5);
+        }
+
+        .footer-about {
+            width: 30%;
+            padding-right: 40px;
+        }
+
+        .footer-contact {
+            width: 70%;
+        }
+
+        .footer p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive design improvements */
+        @media (max-width: 991px) {
+            .news-card {
+                flex-direction: column;
+            }
+            
+            .news-image-container {
+                width: 100%;
+                height: 200px;
+                min-width: unset;
+            }
+            
+            .news-card img {
+                border-radius: 5px 5px 0 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 12px 20px;
+            }
+
+            /* Perbaikan menu pada layar mobile */
+            .menu {
+                top: 64px;
+                height: auto;
+            }
+            
+            .menu .nav {
+                width: max-content;
+                overflow-x: auto;
+                padding: 0 10px;
+            }
+
+            .menu .nav-link {
+                padding: 10px 15px;
+                font-size: 14px;
+                white-space: nowrap;
+            }
+
+            .gallery-main {
+                height: 300px;
+            }
+
+            .gallery-thumbs {
+                height: 80px;
+            }
+
+            .gallery-thumbs .swiper-slide {
+                width: 100px;
+                height: 60px;
+            }
+
+            .footer {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+
+            .footer-about, 
+            .footer-contact {
+                width: 100%;
+            }
+
+            .footer-about {
+                margin-bottom: 30px;
+                padding-right: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header {
+                flex-wrap: wrap;
+                padding: 12px 15px;
+            }
+
+            .header .logo {
+                max-height: 35px;
+            }
+
+            .header .date {
+                font-size: 13px;
+            }
+
+            /* Perbaikan menu di mobile untuk mencegah melebar */
+            .menu {
+                top: 59px; /* Sesuaikan dengan tinggi header */
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding: 0;
+            }
+            
+            .menu .nav {
+                justify-content: flex-start;
+                padding: 0;
+            }
+            
+            .menu .nav-item {
+                flex-shrink: 0;
+            }
+            
+            .menu .nav-link {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+
+            .content-wrapper {
+                padding-top: 110px;
+            }
+
+            .slider {
+                height: auto;
+                margin-bottom: 30px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .gallery-main {
+                height: 220px;
+            }
+
+            .gallery-thumbs .swiper-slide {
+                width: 80px;
+                height: 60px;
+            }
+            
+            .news-meta {
+                gap: 10px;
+            }
+            
+        /* Perbaikan tampilan news card di mobile */
+        /* Perbaikan untuk grid col-6 di mobile */
+    @media (max-width: 576px) {
+        /* Atur margin dan padding yang konsisten */
+        .news-section .row {
+            margin: 0 -5px;
+        }
+        
+        /* Atur kolom agar tetap rapi */
+        .news-section .col-6 {
+            padding: 0 5px;
+            margin-bottom: 10px;
+        }
+        
+        /* Card dengan ukuran yang lebih kecil dan layout yang direvisi */
+        .news-card {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+            overflow: hidden;
+            height: 100%;
+            padding: 0;
+            border: none;
+        }
+        
+        /* Thumbnail image untuk tampilan grid */
+        .news-image-container {
+            width: 100%;
+            min-width: 100%;
+            height: 110px;
+            border-radius: 0;
+            position: relative;
+        }
+        
+        /* Content area untuk layout col-6 */
+        .news-card .content {
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            flex-grow: 1;
+        }
+        
+        /* Ukuran judul lebih kecil untuk grid layout */
+        .news-card h3 {
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin: 0 0 4px 0;
+            color: #00348D;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            max-height: 34px;
+        }
+        
+        /* Meta item dengan ukuran lebih kecil */
+        .news-meta {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+            font-size: 10px;
+            color: #666;
+            gap: 8px;
+        }
+        
+        .news-meta .meta-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .news-meta i {
+            margin-right: 3px;
+            font-size: 10px;
+        }
+        
+        /* Hanya tampilkan satu tombol per kartu di grid layout */
+        .action-buttons {
+            display: flex;
+            margin-top: auto;
+        }
+        
+        .news-card .btn {
+            font-size: 10px;
+            padding: 3px 8px;
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        /* Sembunyikan tombol kategori di layout grid */
+        .news-card .btn.btn-outline {
+            display: none;
+        }
+    }
+    
+    /* Responsive untuk tablet - agar transisi lebih baik */
+    @media (min-width: 577px) and (max-width: 767px) {
+        .news-section .col-6 {
+            padding: 0 8px;
+        }
+        
+        .news-card {
+            flex-direction: column;
+        }
+        
+        .news-image-container {
+            width: 100%;
+            height: 130px;
+        }
+        
+        .news-card .content {
+            padding: 10px;
+        }
+    }
+</style>
+
+
+<!-- Tambahkan CSS responsive untuk bootstrap -->
+<style>
+    /* CSS untuk memastikan konsistensi pada berbagai ukuran layar */
+    @media (min-width: 768px) {
+        /* Layout untuk desktop */
+        .news-card {
+            display: flex;
+            flex-direction: row;
+            height: auto;
+            margin-bottom: 25px;
+        }
+        
+        .news-image-container {
+            width: 180px;
+            min-width: 180px;
+            height: 180px;
+        }
+        
+        .news-card .content {
+            padding: 20px;
+        }
+        
+        .news-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .news-meta {
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+        
+        .news-card p {
+            display: block;
+        }
+        
+        .news-card .btn {
+            font-size: 14px;
+            padding: 8px 16px;
+        }
+        
+        .news-card .btn.btn-outline {
+            display: inline-flex;
+        }
+    }
