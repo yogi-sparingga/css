@@ -1,15 +1,17 @@
+/* Root Variables */
 :root {
     --primary-color: #0056b3;
     --secondary-color: #003087;
     --dark-color: #1a1a2e;
     --text-color: #333;
     --light-bg: #f8f9fa;
-    --card-shadow: 0 10px 20px rgba(0,0,0,0.08);
-    --hover-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    --transition: all 0.3s ease;
+    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    --hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    --transition: 0.3s ease;
     --border-radius: 12px;
 }
 
+/* Reset & Base Styles */
 body {
     font-family: 'Poppins', 'Roboto', 'Arial', sans-serif;
     background: var(--light-bg);
@@ -18,32 +20,35 @@ body {
     color: var(--text-color);
 }
 
-h1, h2, h3, h4, h5, h6, .section-title, .menu .nav-link {
+/* Typography */
+h1, h2, h3, h4, h5, h6, .section-title, .menu .nav-link, .news-card h3 {
     font-family: 'Poppins', 'Roboto', sans-serif;
 }
+
 p, .news-meta, .footer p, .copyright {
     font-family: 'Roboto', 'Arial', sans-serif;
     line-height: 1.6;
 }
 
 .news-card h3 {
-    font-family: 'Poppins', 'Roboto', sans-serif;
     font-weight: 600;
 }
+
 /* Header */
 .header {
-    background: #fff;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-    padding: 12px 30px;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    padding: 12px 30px;
+    background: #fff;
+    box-shadow: var(--card-shadow);
 }
+
 .header .logo {
     max-height: 40px;
     width: auto;
@@ -51,89 +56,82 @@ p, .news-meta, .footer p, .copyright {
 
 .header .date {
     font-size: 14px;
-    color: #666;
     font-weight: 300;
+    color: #666;
 }
 
-/* Menu - Perbaikan untuk mencegah melebar ke bawah */
+/* Navigation Menu */
 .menu {
-    background: linear-gradient(to right, #272330, #3c00bf);
-    padding: 0;
-    width: 100%;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.1);
     position: fixed;
     top: 64px;
     left: 0;
     z-index: 900;
-    height: 44px; /* Tetapkan tinggi menu */
+    width: 100%;
+    height: 44px;
+    padding: 0;
+    background: linear-gradient(to right, #272330, #3c00bf);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
 }
 
 .menu .nav {
     display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
     justify-content: center;
     width: 100%;
     height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .menu .nav-item {
-    margin: 0;
-    height: 100%;
     display: flex;
     align-items: center;
+    height: 100%;
 }
 
 .menu .nav-link {
-    color: #fff;
-    font-weight: 400;
-    text-decoration: none;
-    font-size: 15px;
-    padding: 0 25px;
-    transition: var(--transition);
     display: flex;
     align-items: center;
     height: 100%;
+    padding: 0 25px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    text-decoration: none;
     border-bottom: 3px solid transparent;
+    transition: background var(--transition), border-bottom var(--transition);
 }
 
-.menu .nav-link:hover, 
+.menu .nav-link:hover,
 .menu .nav-link.active {
-    background: rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.15);
     border-bottom: 3px solid #fff;
 }
 
 /* Content Wrapper */
 .content-wrapper {
-    padding-top: 120px;
     max-width: 1200px;
     margin: 0 auto;
-    padding-left: 15px;
-    padding-right: 15px;
-    background-color: #ffffff;
+    padding: 120px 15px 40px;
+    background: #fff;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
     position: relative;
     z-index: 10;
-    padding-bottom: 40px;
     border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
+
 .content-wrapper section {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 0 20px;
 }
 
-/* Enhanced Main Slider - Perbaikan agar lebih kecil dan tanpa border radius */
+/* Main Slider */
 .slider {
     width: 100%;
-    max-width: 100%; 
-    height: auto; 
     margin-bottom: 40px;
     position: relative;
     overflow: hidden;
-    border-radius: 0; /* Menghilangkan border radius */
     box-shadow: var(--card-shadow);
 }
 
@@ -146,15 +144,15 @@ p, .news-meta, .footer p, .copyright {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     width: 100%;
-    height: 380px; /* Mengubah tinggi menjadi fixed height yang lebih kecil */
+    height: 380px;
+    position: relative;
 }
 
 .main-slider .swiper-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Mengubah dari contain ke cover untuk tampilan yang lebih baik */
+    object-fit: cover;
     object-position: center;
     transition: transform 0.6s ease;
 }
@@ -166,22 +164,22 @@ p, .news-meta, .footer p, .copyright {
     left: 0;
     width: 100%;
     height: 30%;
-    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
     z-index: 1;
     pointer-events: none;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
+    width: 44px;
+    height: 44px;
     color: #fff;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 50%;
-    width: 44px;
-    height: 44px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: var(--transition);
+    transition: background var(--transition), transform var(--transition);
     z-index: 10;
 }
 
@@ -197,30 +195,29 @@ p, .news-meta, .footer p, .copyright {
 }
 
 .swiper-pagination-bullet {
-    background: #fff;
-    opacity: 0.7;
     width: 10px;
     height: 10px;
-    transition: var(--transition);
+    background: #fff;
+    opacity: 0.7;
+    transition: width var(--transition), height var(--transition), opacity var(--transition);
 }
 
 .swiper-pagination-bullet-active {
-    opacity: 1;
-    background: var(--primary-color);
     width: 14px;
     height: 14px;
-    transform: scale(1.2);
+    background: var(--primary-color);
+    opacity: 1;
 }
 
 /* Section Headings */
 .section-title {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
     font-size: 24px;
     font-weight: 600;
-    margin-bottom: 25px;
-    position: relative;
-    padding-bottom: 10px;
     color: var(--secondary-color);
-    display: inline-block;
 }
 
 .section-title:after {
@@ -241,13 +238,13 @@ p, .news-meta, .footer p, .copyright {
 }
 
 .view-all {
-    color: var(--primary-color);
-    font-weight: 500;
-    font-size: 14px;
     display: flex;
     align-items: center;
     gap: 5px;
-    transition: var(--transition);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-color);
+    transition: opacity var(--transition), transform var(--transition);
 }
 
 .view-all:hover {
@@ -255,23 +252,22 @@ p, .news-meta, .footer p, .copyright {
     transform: translateX(3px);
 }
 
-/* IMPROVED: News Section with Modern Cards */
+/* News Section */
 .news-section {
-    padding: 0;
     margin-bottom: 60px;
 }
 
 .news-card {
-    background: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-    margin-bottom: 15px;
-    overflow: hidden;
-    transition: var(--transition);
     display: flex;
     position: relative;
-    border: 1px solid rgba(0,0,0,0.05);
-    height: 100%; /* Memastikan semua card dalam row memiliki tinggi yang sama */
+    height: 100%;
+    margin-bottom: 15px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .news-card:hover {
@@ -280,12 +276,11 @@ p, .news-meta, .footer p, .copyright {
 }
 
 .news-image-container {
-    position: relative;
-    min-width: 180px;
+    flex-shrink: 0;
     width: 180px;
     height: 180px;
+    position: relative;
     overflow: hidden;
-    flex-shrink: 0;
 }
 
 .news-card img {
@@ -300,32 +295,30 @@ p, .news-meta, .footer p, .copyright {
 }
 
 .news-card .content {
-    padding: 20px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    padding: 20px;
 }
 
 .news-card h3 {
-    font-size: 18px;
     margin-bottom: 10px;
-    font-weight: 600;
-    color: var(--secondary-color);
+    font-size: 18px;
     line-height: 1.4;
+    color: var(--secondary-color);
 }
 
 .news-card p {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 15px;
     flex-grow: 1;
-    line-height: 1.6;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #666;
 }
 
 .news-meta {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
+    align-items: center;
     gap: 15px;
     margin-bottom: 15px;
     font-size: 13px;
@@ -345,26 +338,25 @@ p, .news-meta, .footer p, .copyright {
 .action-buttons {
     display: flex;
     gap: 10px;
-    margin-top: auto; /* Mendorong tombol ke bawah */
+    margin-top: auto;
 }
 
 .news-card .btn {
-    border-radius: 3px;
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: var(--transition);
-    align-self: flex-start;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
     display: inline-flex;
     align-items: center;
     gap: 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    background: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius);
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
 .news-card .btn:hover {
-    background-color: var(--secondary-color);
+    background: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 48, 135, 0.2);
 }
@@ -373,27 +365,25 @@ p, .news-meta, .footer p, .copyright {
     position: absolute;
     top: 10px;
     left: 10px;
-    background: var(--primary-color);
-    color: white;
-    font-size: 12px;
-    padding: 4px 10px;
-    border-radius: 20px;
     z-index: 5;
+    padding: 4px 10px;
+    font-size: 12px;
+    color: #fff;
+    background: var(--primary-color);
+    border-radius: 20px;
 }
 
-/* FIXED: Gallery Section with Proper Lightbox Integration */
+/* Gallery Section */
 .gallery-section {
-    padding: 0;
     margin-bottom: 60px;
 }
 
-/* Gallery Main */
 .gallery-main {
     width: 100%;
     height: 450px;
     margin-bottom: 15px;
-    border-radius: var(--border-radius);
     overflow: hidden;
+    border-radius: var(--border-radius);
     box-shadow: var(--card-shadow);
 }
 
@@ -421,11 +411,10 @@ p, .news-meta, .footer p, .copyright {
     transform: scale(1.05);
 }
 
-/* Gallery Thumbnails */
 .gallery-thumbs {
     height: 100px;
-    box-sizing: border-box;
     padding: 10px 0;
+    box-sizing: border-box;
 }
 
 .gallery-thumbs .swiper-slide {
@@ -433,11 +422,11 @@ p, .news-meta, .footer p, .copyright {
     height: 80px;
     opacity: 0.6;
     cursor: pointer;
+    border: 2px solid transparent;
     border-radius: 5px;
     overflow: hidden;
-    border: 2px solid transparent;
-    transition: var(--transition);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: opacity var(--transition), border-color var(--transition), transform var(--transition);
 }
 
 .gallery-thumbs .swiper-slide-thumb-active {
@@ -452,16 +441,16 @@ p, .news-meta, .footer p, .copyright {
     object-fit: cover;
 }
 
-/* Improved Lightbox Styling */
+/* Lightbox Styling */
 .lb-outerContainer {
     border-radius: 8px 8px 0 0 !important;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .lb-dataContainer {
-    border-radius: 0 0 8px 8px !important;
     padding: 12px !important;
-    background-color: #fff !important;
+    background: #fff !important;
+    border-radius: 0 0 8px 8px !important;
 }
 
 .lb-data .lb-caption {
@@ -471,8 +460,8 @@ p, .news-meta, .footer p, .copyright {
 }
 
 .lb-data .lb-number {
-    font-size: 13px !important;
     padding-top: 8px !important;
+    font-size: 13px !important;
     color: #666 !important;
 }
 
@@ -480,38 +469,12 @@ p, .news-meta, .footer p, .copyright {
     padding-top: 5px !important;
 }
 
-/* Footer Styling Modern */
+/* Footer */
 .footer {
+    position: relative;
+    padding: 60px 0 0;
     background: #003367;
     color: rgba(255, 255, 255, 0.8);
-    padding: 60px 0 0;
-    position: relative;
-    margin-top: 0; /* Menghilangkan margin */
-    border-radius: 0; /* Menghilangkan radius atas */
-}
-/* Responsive adjustments */
-@media (max-width: 991px) {
-    .content-wrapper {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    
-    .content-wrapper section {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-}
-
-@media (max-width: 576px) {
-    .content-wrapper {
-        box-shadow: none;
-        background-color: #ffffff;
-    }
-    
-    .content-wrapper section {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
 }
 
 .footer::before {
@@ -530,12 +493,12 @@ p, .news-meta, .footer p, .copyright {
 }
 
 .footer-heading {
-    color: #fff;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 20px;
     position: relative;
     padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
 }
 
 .footer-heading::after {
@@ -549,9 +512,9 @@ p, .news-meta, .footer p, .copyright {
 }
 
 .footer-links {
-    list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .footer-links li {
@@ -559,10 +522,10 @@ p, .news-meta, .footer p, .copyright {
 }
 
 .footer-links a {
+    display: block;
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    transition: all 0.3s ease;
-    display: block;
+    transition: color var(--transition), transform var(--transition);
 }
 
 .footer-links a:hover {
@@ -571,15 +534,15 @@ p, .news-meta, .footer p, .copyright {
 }
 
 .footer-contact {
-    list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .footer-contact li {
-    margin-bottom: 10px;
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 .footer-contact i {
@@ -590,7 +553,7 @@ p, .news-meta, .footer p, .copyright {
 .footer-contact a {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: color var(--transition);
 }
 
 .footer-contact a:hover {
@@ -598,10 +561,9 @@ p, .news-meta, .footer p, .copyright {
 }
 
 .footer-address p {
-    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 20px;
     font-size: 14px;
-    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .footer-address i {
@@ -621,10 +583,10 @@ p, .news-meta, .footer p, .copyright {
     justify-content: center;
     width: 36px;
     height: 36px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
     color: #fff;
-    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: background var(--transition), transform var(--transition);
 }
 
 .social-link:hover {
@@ -635,9 +597,9 @@ p, .news-meta, .footer p, .copyright {
 }
 
 .footer-bottom {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 15px 0;
     margin-top: 40px;
+    padding: 15px 0;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .copyright {
@@ -651,36 +613,46 @@ p, .news-meta, .footer p, .copyright {
     justify-content: center;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
     color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: background var(--transition), transform var(--transition);
 }
 
 .back-to-top:hover {
     background: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    transform: translateY(-3px);
 }
 
-/* Responsive Media Queries */
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .content-wrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .content-wrapper section {
+        padding: 0 15px;
+    }
+}
+
 @media (max-width: 992px) {
     .main-slider .swiper-slide {
         height: 320px;
     }
-    
+
     .news-card {
         flex-direction: column;
     }
-    
+
     .news-image-container {
         width: 100%;
         height: 200px;
-        min-width: unset;
     }
-    
+
     .news-card img {
-        border-radius: 5px 5px 0 0;
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
     }
 }
 
@@ -692,27 +664,26 @@ p, .news-meta, .footer p, .copyright {
     .slider {
         margin-bottom: 35px;
     }
-    
+
     .main-slider .swiper-slide {
         height: 280px;
     }
 
-    /* Perbaikan menu pada layar mobile */
     .menu {
         top: 64px;
         height: auto;
-    }
-    
-    .menu .nav {
-        width: max-content;
         overflow-x: auto;
         padding: 0 10px;
+    }
+
+    .menu .nav {
+        width: max-content;
+        justify-content: flex-start;
     }
 
     .menu .nav-link {
         padding: 10px 15px;
         font-size: 14px;
-        white-space: nowrap;
     }
 
     .gallery-main {
@@ -729,11 +700,7 @@ p, .news-meta, .footer p, .copyright {
     }
 
     .footer {
-        padding: 40px 20px;
-    }
-    
-    .footer .container {
-        max-width: 100%;
+        padding: 40px 20px 0;
     }
 }
 
@@ -751,58 +718,50 @@ p, .news-meta, .footer p, .copyright {
         font-size: 13px;
     }
 
-    /* Perbaikan menu di mobile untuk mencegah melebar */
     .menu {
-        top: 59px; /* Sesuaikan dengan tinggi header */
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding: 0;
+        top: 59px;
         height: 44px;
-        white-space: nowrap;
-    }
-    
-    .menu .nav {
-        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         padding: 0;
-        width: max-content;
     }
-    
-    .menu .nav-item {
-        flex-shrink: 0;
+
+    .menu .nav {
+        width: auto;
+        max-width: 100%;
+        justify-content: flex-start;
     }
-    
+
     .menu .nav-link {
         padding: 10px 12px;
         font-size: 13px;
+        white-space: nowrap;
     }
-    
+
     .menu::-webkit-scrollbar {
         height: 3px;
     }
-    
+
     .menu::-webkit-scrollbar-thumb {
-        background: rgba(255,255,255,0.3);
+        background: rgba(255, 255, 255, 0.3);
         border-radius: 10px;
     }
 
     .content-wrapper {
         padding-top: 110px;
+        box-shadow: none;
+    }
+
+    .content-wrapper section {
+        padding: 0 10px;
     }
 
     .slider {
-        height: auto;
         margin-bottom: 30px;
-        border-radius: 0; /* Memastikan tidak ada border radius di mobile */
     }
 
     .main-slider .swiper-slide {
         height: 200px;
-    }
-
-    .main-slider .swiper-slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
     }
 
     .section-title {
@@ -817,139 +776,112 @@ p, .news-meta, .footer p, .copyright {
         width: 80px;
         height: 60px;
     }
-    
+
     .news-meta {
         gap: 10px;
     }
-    
-    /* Perbaikan footer mobile */
-    .footer {
-        padding: 40px 0 0;
-    }
-    
-    .footer-bottom {
-        text-align: center;
-    }
-    
-    .footer-heading {
-        margin-top: 20px;
-    }
-    
-    .copyright {
-        margin-bottom: 15px;
-    }
-    
-    .back-to-top {
-        margin: 0 auto;
-    }
-    
-    .text-md-end {
-        text-align: center !important;
-    }
-    
-    /* Perbaikan news card di mobile */
+
     .news-section .row {
         margin: 0 -5px;
     }
-    
+
     .news-section .col-6 {
         padding: 0 5px;
         margin-bottom: 10px;
     }
-    
+
     .news-card {
-        display: flex;
         flex-direction: column;
-        background: white;
-        border-radius: 8px;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.05);
-        overflow: hidden;
-        height: 100%;
         padding: 0;
         border: none;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
     }
-    
+
     .news-image-container {
         width: 100%;
-        min-width: 100%;
         height: 110px;
-        border-radius: 0;
-        position: relative;
     }
-    
+
     .news-card .content {
         padding: 8px;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        flex-grow: 1;
     }
-    
+
     .news-card h3 {
+        margin: 0 0 4px;
         font-size: 13px;
-        font-weight: 600;
         line-height: 1.3;
-        margin: 0 0 4px 0;
-        color: #00348D;
+        color: #00348d;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
         max-height: 34px;
     }
-    
+
     .news-meta {
-        display: flex;
-        flex-wrap: wrap;
         margin-bottom: 5px;
         font-size: 10px;
         color: #666;
         gap: 8px;
     }
-    
-    .news-meta .meta-item {
-        display: flex;
-        align-items: center;
-    }
-    
+
     .news-meta i {
         margin-right: 3px;
         font-size: 10px;
     }
-    
-    .action-buttons {
-        display: flex;
-        margin-top: auto;
-    }
-    
+
     .news-card .btn {
-        font-size: 10px;
         padding: 3px 8px;
+        font-size: 10px;
         width: 100%;
-        justify-content: center;
         text-align: center;
+        justify-content: center;
     }
-    
+
     .news-card .btn.btn-outline {
         display: none;
     }
+
+    .footer {
+        padding: 40px 0 0;
+    }
+
+    .footer-bottom {
+        text-align: center;
+    }
+
+    .footer-heading {
+        margin-top: 20px;
+    }
+
+    .copyright {
+        margin-bottom: 15px;
+    }
+
+    .back-to-top {
+        margin: 0 auto;
+    }
+
+    .text-md-end {
+        text-align: center !important;
+    }
 }
 
-/* Responsive untuk tablet - agar transisi lebih baik */
 @media (min-width: 577px) and (max-width: 767px) {
     .news-section .col-6 {
         padding: 0 8px;
     }
-    
+
     .news-card {
         flex-direction: column;
     }
-    
+
     .news-image-container {
         width: 100%;
         height: 130px;
     }
-    
+
     .news-card .content {
         padding: 10px;
     }
