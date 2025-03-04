@@ -11,13 +11,25 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', 'Roboto', 'Arial', sans-serif;
     background: var(--light-bg);
     margin: 0;
     padding: 0;
     color: var(--text-color);
 }
 
+h1, h2, h3, h4, h5, h6, .section-title, .menu .nav-link {
+    font-family: 'Poppins', 'Roboto', sans-serif;
+}
+p, .news-meta, .footer p, .copyright {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+.news-card h3 {
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    font-weight: 600;
+}
 /* Header */
 .header {
     background: #fff;
@@ -32,7 +44,6 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
 .header .logo {
     max-height: 40px;
     width: auto;
@@ -102,6 +113,16 @@ body {
     margin: 0 auto;
     padding-left: 15px;
     padding-right: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 10;
+    padding-bottom: 40px;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+.content-wrapper section {
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* Enhanced Main Slider - Perbaikan agar lebih kecil dan tanpa border radius */
@@ -465,7 +486,32 @@ body {
     color: rgba(255, 255, 255, 0.8);
     padding: 60px 0 0;
     position: relative;
-    margin-top: 60px;
+    margin-top: 0; /* Menghilangkan margin */
+    border-radius: 0; /* Menghilangkan radius atas */
+}
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .content-wrapper {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .content-wrapper section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .content-wrapper {
+        box-shadow: none;
+        background-color: #ffffff;
+    }
+    
+    .content-wrapper section {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 
 .footer::before {
