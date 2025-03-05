@@ -187,20 +187,20 @@
             display: inline-block;
         }
 
-       /* Slider */
-.slider {
-    width: 100%;
-    margin-bottom: 40px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 0;
-    box-shadow: var(--card-shadow);
-}
+       /* Slider - Remove margin at top */
+        .slider {
+            width: 100%;
+            margin: -108px auto 40px; /* This negative margin pulls it up */
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            box-shadow: var(--card-shadow);
+        }
 
-.main-slider {
-    width: 100%;
-    height: 450px; /* Increased height to match image */
-}
+        .main-slider {
+            width: 100%;
+            height: 550px; /* Increased further to extend coverage */
+        }
 
 .main-slider .swiper-slide {
     display: flex;
@@ -281,7 +281,7 @@
 
 /* Skeleton Loader for Slider */
 .skeleton-slider {
-    height: auto; /* Match the slider height */
+    height: 550px;
     width: 100%;
     border-radius: 0;
 }
@@ -289,7 +289,7 @@
 @media (max-width: 992px) {
     .main-slider,
     .skeleton-slider {
-        height: 350px;
+        height: 450px;
     }
 }
 
