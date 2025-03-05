@@ -190,7 +190,7 @@
        /* Slider - Remove margin at top */
         .slider {
             width: 100%;
-            margin: -108px auto 40px; /* This negative margin pulls it up */
+            margin: -99px auto 40px; /* This negative margin pulls it up */
             position: relative;
             overflow: hidden;
             border-radius: 0;
