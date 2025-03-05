@@ -281,7 +281,7 @@
 
 /* Skeleton Loader for Slider */
 .skeleton-slider {
-    height: 450px; /* Match the slider height */
+    height: auto; /* Match the slider height */
     width: 100%;
     border-radius: 0;
 }
