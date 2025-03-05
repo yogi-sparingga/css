@@ -128,7 +128,7 @@
         .content-wrapper {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 120px 15px 40px;
+            padding: 108px 15px 40px; /* Reduced from 120px to 108px */
             background: #fff;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
             position: relative;
