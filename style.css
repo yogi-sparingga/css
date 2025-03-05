@@ -793,6 +793,7 @@
         @media (max-width: 992px) {
             .main-slider,
             .skeleton-slider {
+                margin: -99px auto 40px;
                 height: 320px;
             }
 
@@ -841,6 +842,7 @@
 
             .main-slider,
             .skeleton-slider {
+                margin: -99px auto 40px;
                 height: 280px;
             }
 
@@ -932,6 +934,7 @@
 
             .main-slider,
             .skeleton-slider {
+                margin: -99px auto 40px;
                 height: 200px;
             }
 
